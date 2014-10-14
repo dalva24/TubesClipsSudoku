@@ -18,7 +18,7 @@
 (deftemplate possible
    (slot row)
    (slot column)
-   (slot diagonal)
+   (slot diagonal (type INTEGER) (default 0))
    (slot value)
    (slot group)
    (slot id))
