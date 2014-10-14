@@ -8,6 +8,8 @@
 	
 	(assert (phase expand-any))	
    
+   (assert (size 3))
+   
    (assert (possible (row 1) (column 1) (value any) (group 1) (id 1)))
    (assert (possible (row 1) (column 2) (value any) (group 1) (id 2)))
    (assert (possible (row 1) (column 3) (value 1) (group 1) (id 3)))
