@@ -49,5 +49,5 @@
    (assert (possible (row 5) (column 5) (value any)   (group 6) (id 32)))
    (assert (possible (row 5) (column 6) (value any)   (group 6) (id 33)))
    (assert (possible (row 6) (column 4) (value any)   (group 6) (id 34)))
-   (assert (possible (row 6) (column 5) (value 6) (group 6) (id 35))))
-   (assert (possible (row 6) (column 6) (value any) (group 6) (id 36)))
+   (assert (possible (row 6) (column 5) (value 6) (group 6) (id 35)))
+   (assert (possible (row 6) (column 6) (value any) (group 6) (id 36))))

@@ -35,7 +35,7 @@
    (assert (possible (row 3) (column 5) (value any)   (group 4) (id 20)))
    (assert (possible (row 3) (column 6) (value any)   (group 4) (id 21)))
    (assert (possible (row 4) (column 4) (value any)   (group 4) (id 22)))
-   (assert (possible (row 4) (column 5) (value 3) (group 4) (id 23))))
+   (assert (possible (row 4) (column 5) (value 3) (group 4) (id 23)))
    (assert (possible (row 4) (column 6) (value any) (group 4) (id 24)))
    
    (assert (possible (row 5) (column 1) (value 5) (group 5) (id 25)))
@@ -49,5 +49,5 @@
    (assert (possible (row 5) (column 5) (value any)   (group 6) (id 32)))
    (assert (possible (row 5) (column 6) (value any)   (group 6) (id 33)))
    (assert (possible (row 6) (column 4) (value 1)   (group 6) (id 34)))
-   (assert (possible (row 6) (column 5) (value any) (group 6) (id 35))))
-   (assert (possible (row 6) (column 6) (value any) (group 6) (id 36)))
+   (assert (possible (row 6) (column 5) (value any) (group 6) (id 35)))
+   (assert (possible (row 6) (column 6) (value any) (group 6) (id 36))))
