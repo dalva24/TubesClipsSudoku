@@ -18,6 +18,7 @@
 (deftemplate possible
    (slot row)
    (slot column)
+   (slot diagonal)
    (slot value)
    (slot group)
    (slot id))
@@ -43,6 +44,7 @@
 (deftemplate iterate-rc
    (slot row)
    (slot column)
+   (slot diagonal)
    (slot index))
    
 (deftemplate rank
@@ -70,19 +72,9 @@
    (assert (size-value (size 1) (value 1)))
    (assert (size-value (size 2) (value 2)))
    (assert (size-value (size 2) (value 3)))
-   (assert (size-value (size 3) (value 4)))
+   (assert (size-value (size 2) (value 4)))
    (assert (size-value (size 3) (value 5)))
-   (assert (size-value (size 3) (value 6)))
-   (assert (size-value (size 4) (value 7)))
-   (assert (size-value (size 4) (value 8)))
-   (assert (size-value (size 4) (value 9)))
-   (assert (size-value (size 4) (value 10)))
-   (assert (size-value (size 5) (value 11)))
-   (assert (size-value (size 5) (value 12)))
-   (assert (size-value (size 5) (value 13)))
-   (assert (size-value (size 5) (value 14)))
-   (assert (size-value (size 5) (value 15))))
-   
+   (assert (size-value (size 3) (value 6))))
 ;;; ***********
 ;;; stress-test
 ;;; ***********
@@ -138,13 +130,13 @@
 
    (phase expand-any)
    
-   (possible (row ?r) (column ?c) (value any) (id ?id))
+   (possible (row ?r) (column ?c) (diagonal ?d) (value any) (id ?id))
   
    (not (possible (value any) (id ?id2&:(< ?id2 ?id))))
       
    =>
       
-   (assert (iterate-rc (row ?r) (column ?c) (index 1))))
+   (assert (iterate-rc (row ?r) (column ?c) (diagonal ?d) (index 1))))
 
 ;;; **********
 ;;; expand-any
@@ -156,21 +148,21 @@
 
    (phase expand-any)
    
-   (possible (row ?r) (column ?c) (value any) (group ?g) (id ?id))
+   (possible (row ?r) (column ?c) (diagonal ?d) (value any) (group ?g) (id ?id))
   
    (not (possible (value any) (id ?id2&:(< ?id2 ?id))))
    
    (size ?s)
    
-   ?f <- (iterate-rc (row ?r) (column ?c) (index ?v))
+   ?f <- (iterate-rc (row ?r) (column ?c) (diagonal ?d) (index ?v))
    
    (size-value (size ?as&:(<= ?as ?s)) (value ?v))
    
-   (not (possible (row ?r) (column ?c) (value ?v)))
+   (not (possible (row ?r) (column ?c) (diagonal ?d) (value ?v)))
      
    =>
    
-   (assert (possible (row ?r) (column ?c) (value ?v) (group ?g) (id ?id)))
+   (assert (possible (row ?r) (column ?c) (diagonal ?d) (value ?v) (group ?g) (id ?id)))
    
    (modify ?f (index (+ ?v 1))))
    
@@ -184,11 +176,11 @@
 
    (phase expand-any)
    
-   ?f1 <- (possible (row ?r) (column ?c) (value any))
+   ?f1 <- (possible (row ?r) (column ?c) (diagonal ?d) (value any))
      
    (size ?s)
    
-   ?f2 <- (iterate-rc (row ?r) (column ?c) (index ?v))
+   ?f2 <- (iterate-rc (row ?r) (column ?c) (diagonal ?d) (index ?v))
    
    (not (size-value (size ?as&:(<= ?as ?s)) (value ?v)))
 
