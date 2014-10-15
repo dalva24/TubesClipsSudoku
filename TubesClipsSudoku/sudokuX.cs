@@ -11,7 +11,7 @@ namespace TubesClipsSudoku
     {
         int[,] xValue;
 
-        int[,] readText(string FileLocation)
+        public int[,] readText(string FileLocation)
         { /*Reads and sets xValue according to the .txt file pointed by FileLocation*/
             xValue = new int[6, 6];
             using (StreamReader sr = File.OpenText(FileLocation))
@@ -50,12 +50,12 @@ namespace TubesClipsSudoku
             return xValue;
         }
 
-        int getValue(int x, int y)
+        public int getValue(int x, int y)
         {
             return xValue[x, y];
         }
 
-        void setValue(int x, int y, int value)
+        public void setValue(int x, int y, int value)
         {
             xValue[x, y] = value;
         }
