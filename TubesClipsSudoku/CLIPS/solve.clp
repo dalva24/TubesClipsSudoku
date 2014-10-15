@@ -300,11 +300,11 @@
 
    (technique (name Naked-Single) (rank ?p))
    
-   (possible (value ?v) (diagonal ?c) (id ?id))
+   (possible (value ?v) (diagonal ?d) (id ?id))
    
-   (not (possible (value ~?v) (diagonal ?c) (id ?id)))
+   (not (possible (value ~?v) (diagonal ?d) (id ?id)))
    
-   (possible (value ?v) (diagonal ?c) (id ?id2&~?id))
+   (possible (value ?v) (diagonal ?d&:(< 0 ?d)) (id ?id2&~?id))
    
    (not (impossible (id ?id2) (value ?v) (rank ?p)))
 

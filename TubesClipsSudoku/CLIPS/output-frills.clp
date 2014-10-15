@@ -100,7 +100,7 @@
    
    (size ?s)
    
-   ?f1 <- (print-position ?r ?c&~=(* 2 3))
+   ?f1 <- (print-position ?r ?c&~=(* ?s 2))
    
    ?f2 <- (position-printed ?r ?c)
       
@@ -128,13 +128,13 @@
    
    (size ?s)
    
-   ?f1 <- (print-position ?r&~=(* 2 3) ?c&=(* 2 3))
+   ?f1 <- (print-position ?r&~=(* ?s 2) ?c&=(* ?s 2))
       
    ?f2 <- (position-printed ?r ?c)
    
    =>
 
-   (if (= (mod ?r ?s) 0)
+   (if (= (mod ?r 2) 0)
       then
       (printout ?*output* crlf crlf "   ")
       else
@@ -156,7 +156,7 @@
    
    (size ?s)
 
-   ?f2 <- (print-position ?r&=(* 2 3) ?c&=(* 2 3))
+   ?f2 <- (print-position ?r&=(* ?s 2) ?c&=(* ?s 2))
    
    ?f3 <- (position-printed ?r ?c)
    
@@ -182,7 +182,7 @@
    
    (size ?s)
    
-   ?f1 <- (print-position ?r&=(* 2 3) ?c&=(* 2 3))
+   ?f1 <- (print-position ?r&=(* ?s 2) ?c&=(* ?s 2))
    
    ?f2 <- (position-printed ?r ?c)
    
@@ -206,7 +206,7 @@
    
    (size ?s)
    
-   ?f1 <- (print-position ?r&=(* 2 3) ?c&=(* 2 3))
+   ?f1 <- (print-position ?r&=(* ?s 2) ?c&=(* ?s 2))
    
    ?f2 <- (position-printed ?r ?c)
          
