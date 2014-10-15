@@ -65,7 +65,12 @@ namespace TubesClipsSudoku {
 		}
 
 		private void buttSolve_Click(object sender, EventArgs e) {
-			//TODO
+            Mommosoft.ExpertSystem.Environment theEnv = new Mommosoft.ExpertSystem.Environment();
+            theEnv.Load(@"CLIPS\solve.clp");
+            theEnv.Load(@"CLIPS\sudoku - mod.clp");
+            theEnv.LoadFacts(loadScene.FileName);
+            theEnv.Reset();
+            theEnv.Run();
 		}
 	}
 }
