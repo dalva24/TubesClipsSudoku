@@ -44,6 +44,7 @@
 (deftemplate iterate-rc
    (slot row)
    (slot column)
+   (slot diagonal)
    (slot index))
    
 (deftemplate rank
@@ -135,7 +136,7 @@
       
    =>
       
-   (assert (iterate-rc (row ?r) (column ?c) (index 1))))
+   (assert (iterate-rc (row ?r) (column ?c) (diagonal ?d) (index 1))))
 
 ;;; **********
 ;;; expand-any
@@ -153,7 +154,7 @@
    
    (size ?s)
    
-   ?f <- (iterate-rc (row ?r) (column ?c) (index ?v))
+   ?f <- (iterate-rc (row ?r) (column ?c) (diagonal ?d) (index ?v))
    
    (size-value (size ?as&:(<= ?as ?s)) (value ?v))
    
@@ -179,7 +180,7 @@
      
    (size ?s)
    
-   ?f2 <- (iterate-rc (row ?r) (column ?c) (index ?v))
+   ?f2 <- (iterate-rc (row ?r) (column ?c) (diagonal ?d) (index ?v))
    
    (not (size-value (size ?as&:(<= ?as ?s)) (value ?v)))
 
