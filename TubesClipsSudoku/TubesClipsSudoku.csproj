@@ -132,9 +132,23 @@
     </Compile>
     <None Include="ref.clp" />
     <None Include="rule.clp" />
+    <None Include="testcase\tc1.clp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="testcase\tc2.clp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="testcase\tc3.clp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="testcase\testcase1.txt" />
+    <Content Include="testcase\testcase2.txt" />
+    <Content Include="testcase\testcase3.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
