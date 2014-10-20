@@ -387,6 +387,30 @@
    =>
    
    (assert (impossible (id ?id) (value ?v2) (rank ?p) (reason "Hidden Single"))))
+   
+;;; *****************
+;;; hidden-single-diagonal
+;;; *****************
+
+(defrule hidden-single-diagonal
+   
+   (phase match)
+
+   (rank (value ?p) (process yes))
+
+   (technique (name Hidden-Single) (rank ?p))
+   
+   (possible (value ?v) (diagonal ?d) (id ?id))
+   
+   (not (possible (value ?v) (diagonal ?d) (id ~?id)))
+   
+   (possible (value ?v2&~?v) (diagonal ?d&:(< 0 ?d)) (id ?id))
+   
+   (not (impossible (id ?id) (value ?v2) (rank ?p)))
+
+   =>
+   
+   (assert (impossible (id ?id) (value ?v2) (rank ?p) (reason "Hidden Single"))))
 
 ;;; ############################
 ;;; Locked Candidate Single Line
