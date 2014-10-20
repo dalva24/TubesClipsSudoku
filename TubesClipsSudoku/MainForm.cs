@@ -11,14 +11,14 @@ using System.IO;
 
 namespace TubesClipsSudoku {
 	public partial class MainForm : Form {
-        private Mommosoft.ExpertSystem.Environment theEnv = new Mommosoft.ExpertSystem.Environment();
+		private Mommosoft.ExpertSystem.Environment theEnv = new Mommosoft.ExpertSystem.Environment();
 		private sudokuX scene = new sudokuX();
 
 		public MainForm() {
 			InitializeComponent();
-            theEnv.Load(@"CLIPS\sudoku - mod.clp");
-            theEnv.Load(@"CLIPS\solve.clp");
-            theEnv.Load(@"CLIPS\output-frills.clp");
+			theEnv.Load(@"CLIPS\sudoku - mod.clp");
+			theEnv.Load(@"CLIPS\solve.clp");
+			theEnv.Load(@"CLIPS\output-frills.clp");
 		}
 
 		private void buttLoad_Click(object sender, EventArgs e) {
@@ -27,8 +27,7 @@ namespace TubesClipsSudoku {
 			if (result == DialogResult.OK) // Test result.
 			{
 				scene.readText(loadScene.FileName);
-                scene.clpConversion(loadScene.FileName);
-				//What's sudokuX's coordinate system?
+				scene.clpConversion(loadScene.FileName);
 				c11.Text = scene.getValue(1, 1).ToString();
 				c21.Text = scene.getValue(1, 2).ToString();
 				c31.Text = scene.getValue(1, 3).ToString();
@@ -69,13 +68,13 @@ namespace TubesClipsSudoku {
 		}
 
 		private void buttSolve_Click(object sender, EventArgs e) {
-            string filepath = loadScene.FileName + ".clp";
-            theEnv.Load(@filepath);
-            theEnv.Reset();
-            string a = Console.ReadLine();
-            theEnv.Run();
+			string filepath = loadScene.FileName + ".clp";
+			theEnv.Load(@filepath);
+			theEnv.Reset();
+			string a = Console.ReadLine();
+			theEnv.Run();
 
-            Console.WriteLine(a);
+			Console.WriteLine(a);
 		}
 
 	}
