@@ -73,8 +73,8 @@ namespace TubesClipsSudoku
         }
         public void clpConversion(string FileName)
         {
-            string tempAdd = "C:\"" + FileName + ".clp";
-            using (StreamWriter file = new StreamWriter(@tempAdd))
+            string newfile = FileName + ".clp";
+            using (StreamWriter file = new StreamWriter(@newfile))
             {
                 file.WriteLine("(defrule grid-values\n");
                 file.WriteLine("?f <- (phase grid-values)\n");
