@@ -72,7 +72,10 @@ namespace TubesClipsSudoku {
             string filepath = loadScene.FileName + ".clp";
             theEnv.Load(@filepath);
             theEnv.Reset();
+            string a = Console.ReadLine();
             theEnv.Run();
+
+            Console.WriteLine(a);
 		}
 
 	}
